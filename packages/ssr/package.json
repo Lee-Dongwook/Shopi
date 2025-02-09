@@ -1,0 +1,27 @@
+{
+  "name": "@react-shop/ssr",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "yarn eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --fix",
+      "yarn prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
+    ]
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}
