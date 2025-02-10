@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from '@product/product.entity';
 import { ProductResolver } from '@product/product.resolver';
 import { ProductService } from '@product/product.service';
-import { Attribute } from '';
+import { Attribute } from '@attribute/attribute.entity';
 import { Category } from '@category/category.entity';
 import { Helpers } from '@utils/helpers';
 

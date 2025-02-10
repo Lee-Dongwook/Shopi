@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, getRepository } from 'typeorm';
 import { validate } from 'class-validator';
 import { Product } from '@product/product.entity';
+import { Attribute } from '@attribute/attribute.entity';
 import {
   CreateProductDto,
   LinkAttributeToProductDto,

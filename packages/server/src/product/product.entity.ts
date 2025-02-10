@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { Field, ObjectType, ID, InputType } from '@nestjs/graphql';
 
-// import { Attribute } from '@attribute/attribute.entity';
+import { Attribute } from '@attribute/attribute.entity';
 // import { Store } from '@store/store.entity';
 import { Category } from '@category/category.entity';
 @ObjectType()
@@ -59,14 +59,14 @@ export class Product {
   @Column()
   dimension: string;
 
-  //   @OneToMany(() => Attribute, (attribute) => attribute.product, {
-  //     cascade: true,
-  //   })
-  //   @JoinTable()
-  //   @Field(() => [Attribute], {
-  //     nullable: true,
-  //   })
-  //   attributes: Attribute[];
+  @OneToMany(() => Attribute, (attribute) => attribute.product, {
+    cascade: true,
+  })
+  @JoinTable()
+  @Field(() => [Attribute], {
+    nullable: true,
+  })
+  attributes: Attribute[];
 
   //   @ManyToOne(() => Store, (store: Store) => store.products)
   //   @Field(() => Store, {
@@ -74,12 +74,12 @@ export class Product {
   //   })
   //   store: Store;
 
-  //   @OneToMany(() => Category, (category) => category.products, {
-  //     cascade: true,
-  //   })
-  //   @JoinTable()
-  //   @Field(() => [Category], {
-  //     nullable: true,
-  //   })
-  //   categories: Category[];
+  @OneToMany(() => Category, (category) => category.products, {
+    cascade: true,
+  })
+  @JoinTable()
+  @Field(() => [Category], {
+    nullable: true,
+  })
+  categories: Category[];
 }

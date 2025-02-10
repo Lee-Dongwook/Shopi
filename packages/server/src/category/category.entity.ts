@@ -1,8 +1,7 @@
 import { Field, InputType, ObjectType, ID } from '@nestjs/graphql';
 import { IsString } from 'class-validator';
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-
-// import { Product } from '';
+import { Product } from '@product/product.entity';
 
 @ObjectType()
 @InputType('CategoryInput')
@@ -22,9 +21,9 @@ export class Category {
   @Field()
   description: string;
 
-  // @ManyToOne(() => Product, product => product.categories),
-  // @Field(() => [Product], {
-  // nullable: true
-  // })
-  // products:Product[]
+  @ManyToOne(() => Product, product => product.categories),
+  @Field(() => [Product], {
+  nullable: true
+  })
+  products:Product[]
 }
