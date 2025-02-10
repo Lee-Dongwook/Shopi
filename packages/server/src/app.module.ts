@@ -7,6 +7,9 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { UserModule } from '@user/user.module';
 import { AuthModule } from '@auth/auth.module';
+import { ProductModule } from '@product/product.module';
+import { StoreModule } from '@store/store.module';
+import { AttributeModule } from '@attribute/attribute.module';
 import { CategoryModule } from '@category/category.module';
 
 @Module({
@@ -30,6 +33,9 @@ import { CategoryModule } from '@category/category.module';
     }),
     UserModule,
     AuthModule,
+    ProductModule,
+    AttributeModule,
+    StoreModule,
     CategoryModule,
   ],
   controllers: [AppController],

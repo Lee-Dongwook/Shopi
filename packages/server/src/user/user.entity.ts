@@ -7,11 +7,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToMany,
-  JoinTable,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
+
 import { Roles, Status } from '@user/user.interface';
+import { Store } from '@store/store.entity';
 
 @ObjectType()
 @InputType('UserInput')
@@ -27,10 +28,14 @@ export class User {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @Column({ length: 256 })
+  @Column({
+    length: '256',
+  })
   name: string;
 
-  @Column({ length: 100 })
+  @Column({
+    length: '100',
+  })
   username: string;
 
   @Column()
@@ -63,11 +68,11 @@ export class User {
   @Column()
   password: string;
 
-  //   @ManyToMany(() => Store, (store: Store) => store.employees)
-  //   @Field(() => [Store], {
-  //     nullable: true,
-  //   })
-  //   store: Store[];
+  @ManyToMany(() => Store, (store: Store) => store.employees)
+  @Field(() => [Store], {
+    nullable: true,
+  })
+  store: Store[];
 
   @BeforeInsert()
   async hashPassword() {

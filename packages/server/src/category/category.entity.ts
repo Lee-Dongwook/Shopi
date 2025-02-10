@@ -21,9 +21,9 @@ export class Category {
   @Field()
   description: string;
 
-  @ManyToOne(() => Product, product => product.categories),
+  @ManyToOne(() => Product, (product) => product.categories)
   @Field(() => [Product], {
-  nullable: true
+    nullable: true,
   })
-  products:Product[]
+  products: Product[];
 }

@@ -11,7 +11,7 @@ import {
 import { Field, ObjectType, ID, InputType } from '@nestjs/graphql';
 
 import { Attribute } from '@attribute/attribute.entity';
-// import { Store } from '@store/store.entity';
+import { Store } from '@store/store.entity';
 import { Category } from '@category/category.entity';
 @ObjectType()
 @InputType('ProductInput')
@@ -68,11 +68,11 @@ export class Product {
   })
   attributes: Attribute[];
 
-  //   @ManyToOne(() => Store, (store: Store) => store.products)
-  //   @Field(() => Store, {
-  //     nullable: true,
-  //   })
-  //   store: Store;
+  @ManyToOne(() => Store, (store: Store) => store.products)
+  @Field(() => Store, {
+    nullable: true,
+  })
+  store: Store;
 
   @OneToMany(() => Category, (category) => category.products, {
     cascade: true,
